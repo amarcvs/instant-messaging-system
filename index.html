@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Marco Alberti" />
+	<meta name="description" content="instant messaging system." />
+	<meta name="keywords"  content="" />
+	<meta name="Resource-type" content="Document" />
+	<title>instantMessagingSystem</title>
+	
+	<!-- fullPage.js library -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" />
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="style.css" />
+	
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+</head>
+<body>
+	<div id="fullpage">
+		<div class="section" id="section0">
+			<div class="intro">
+				<div class="slide" id="slide1" data-anchor="slide1">
+					<div class="intro">
+						<h1>FAQs</h1>
+						<p>[...]</p>
+					</div>
+				</div>
+				<div class="slide active" id="slide2" data-anchor="slide2">
+					<h1>Home</h1>
+					<p>[logo] + [drawing]</p>
+					<p>An easy and simple way to message with your favourite people!</p>
+				</div>
+				<div class="slide" id="slide3" data-anchor="slide3">
+					<h1>Enter</h1>
+					<p>[login and registration forms]</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="section" id="section1">
+			<div class="slide" id="slide4" data-anchor="slide4">
+				<div class="intro">
+					<h1>About</h1>
+					<p>[...]</p>
+					<p>[drawing]</p>
+				</div>
+			</div>
+			<div class="slide" id="slide5" data-anchor="slide5">
+				<h1>Contacts</h1>
+				<p>[contacts form + other contacts]</p>
+			</div>
+		</div>
+
+		<div class="section" id="section2">
+			<div class="intro">
+				<h1>#</h1>
+				<p>[...]</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- fullPage.js library -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+
+	<script type="text/javascript">
+		var myFullpage = new fullpage('#fullpage', {
+			anchors: ['home', 'aboutme', 'contacts'],
+			sectionsColor: ['#FA7A35', '#1BBC9B', '#644572'],
+			navigation: true,
+			slidesNavigation: true,
+			navigationPosition: 'right',
+			navigationTooltips: ['Home', 'About me', 'Contacts']
+		});
+	</script>
+</body>
+</html>

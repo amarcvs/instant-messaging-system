@@ -1,0 +1,78 @@
+
+/* --------------------------------------- */
+h1 {
+	font-size: 5em;
+	font-family: arial,helvetica;
+	color: #fff;
+	margin:0;
+}
+
+.intro p {
+	color: #fff;
+}
+
+/* --------------------------------------- */
+.section{
+	text-align:center;
+}
+
+/* overwriting fullPage's styles for control arrows for slides
+* --------------------------------------- */
+.controlArrow.prev { /*?*/
+	left: 50px;
+}
+
+.controlArrow.next { /*?*/
+	right: 50px;
+}
+
+.fp-controlArrow.fp-prev {
+	left: 6%;
+	display:none;
+}
+
+.fp-controlArrow.fp-next {
+	right: 6%;
+	display:none;
+}
+
+/* overwriting fullPage's styles for the navigation dots (to place it where we want)
+* --------------------------------------- */
+.fp-slidesNav.bottom {
+	bottom: 25px;
+}
+
+/* fullPage's bottom menu
+* --------------------------------------- */
+#infoMenu li a {
+	color: #fff;
+}
+
+#section2 h1 {
+	color: #333;
+}
+
+.fp-tableCell {
+	vertical-align: top;
+}
+
+
+/* some interesting color palettes:
+.color1 {color: #f1d070;}
+.color2 {color: #f4de8f;}
+.color3 {color: #122e62;}
+.color4 {color: #146683;}
+.color5 {color: #17a0aa;}
+
+.color1 {color: #343156;}
+.color2 {color: #644572;}
+.color3 {color: #a65a96;}
+.color4 {color: #f17cb7;}
+.color5 {color: #f6a4cf;}
+
+.color1 {color: #002c0e;}
+.color2 {color: #005b78;}
+.color3 {color: #00be9a;}
+.color4 {color: #53f473;}
+.color5 {color: #ffff70;}
+*/
