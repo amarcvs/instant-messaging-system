@@ -1,5 +1,41 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%= notice %></p>-->
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <p>Hello, <%= current_messagewriter.username %></p>
+      <%= render 'form', room: Room.new %>
+      <hr />
+
+      <% @rooms.each do |room| %>
+        <%= link_to room do %>
+          <div class="card mb-2">
+            <div class="card-body">
+              <%= room.name %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-9">
+      <% if @room.present? %>
+        <div class="chat-room">
+          <p><%= @room.name %></p>
+          <% @room.messages.each do |message| %>
+            <p><%= message.content %> - <%= message.messagewriter.username %></p>
+          <% end %>
+          <div class="chat-box">
+            <%= render 'messages/form', message: Message.new, room: @room %>
+          </div>
+        </div>
+        
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!--
 <h1>Rooms</h1>
 
 <table>
@@ -25,3 +61,4 @@
 <br>
 
 <%= link_to 'New Room', new_room_path %>
+-->
