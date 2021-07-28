@@ -1,4 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
 .chat-room {
     height: 100vh;
     overflow-y: hidden;
+    background-color: #f5e979;
+    font-family: 'Ubuntu', sans-serif;
+    .message {
+        min-height: 59px;
+        .content-container {
+            display: inline-block;
+            .content {
+                border-style:solid;
+                border-color:#ffc400;
+                border-width:2px;
+                
+                background-color: white;
+                padding: 8px 16px;
+                border-radius: .25rem;
+            }
+            .author {
+                font-size: 0.8rem;
+                color: #777777;
+                margin-left: 10px;
+            }
+        }
+        &.me {
+            .content-container {
+                float: right;
+                .content {
+                    background-color: #644572;
+                    color: white;
+                }
+            }
+        }
+    }
+    .chat-box {
+        position: absolute;
+        bottom: 0;
+        padding: 20px;
+        width: 70%;
+        input[type=text] {
+            height: 45px;
+            font-size: 18px;
+            padding: 8px;
+        }
+        .btn {
+            height: 45px;
+        }
+    }
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #644572;
+    border-color: #644572;
+}
+
+.btn-primary:hover {
+    background-color: #343156;
+}
+
+input {
+    border-color: #644572 !important;
+}
+
+input:focus { 
+    outline: none !important;
+    border-color: #343156 !important;
+    box-shadow: none !important;
+}
+
+.card-body {
+    border: 2px solid #ffc400 !important;
+}
+
+a {
+    color: black;
+    text-decoration: none;
 }
