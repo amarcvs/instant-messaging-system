@@ -27,7 +27,8 @@ class MessagesController < ApplicationController
     @message.messagewriter = current_messagewriter
 
     @message.save
-    redirect_to request.referrer
+    # redirect_to request.referrer
+    SendMessageJob.perform_later(@message)
   end
 
   # PATCH/PUT /messages/1 or /messages/1.json
