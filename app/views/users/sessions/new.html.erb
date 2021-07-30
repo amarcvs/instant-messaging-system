@@ -24,3 +24,5 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+<%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>

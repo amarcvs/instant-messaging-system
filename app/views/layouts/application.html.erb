@@ -16,6 +16,11 @@
     <% if user_signed_in? %>
       Logged in as <%= current_user.email%> [<%= link_to 'Logout', destroy_user_session_path, :method => :delete%>]
     <% end %>
+
+    <% flash.each do |type, msg| %>
+      <div> Notification: <%= msg %></div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
