@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>InstantMessagingSystem</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
@@ -13,14 +12,11 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      Logged in as <%= current_user.email%> [<%= link_to 'Logout', destroy_user_session_path, :method => :delete%>]
-    <% end %>
+    <%= yield %>
 
     <% flash.each do |type, msg| %>
-      <div> Notification: <%= msg %></div>
+      <br/><div><strong>Notification:</strong> <%= msg %></div>
     <% end %>
 
-    <%= yield %>
   </body>
 </html>

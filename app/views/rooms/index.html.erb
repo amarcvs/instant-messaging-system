@@ -4,31 +4,41 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-3">
+    <div class="col-3 rooms-sidebar">
+      <div class="card no-outline">
+        <div class="card-body">
+          <% if user_signed_in? %>
+            <small>Logged in as</small><br> <%= current_user.email%>
+            (aka: <b><%= current_messagewriter.username %></b>)<br>
+            [<%= link_to 'Logout', destroy_user_session_path, :method => :delete%>]
+          <% end %>
+        </div>
+      </div>
+      <hr>
       <%= render 'form', room: Room.new %>
-      <hr />
-
+      <hr>
       <% @rooms.each do |room| %>
-        <%= link_to room do %>
-          <div class="card mb-2">
+        <%= link_to room, class: 'room-link' do %>
+          <% active_class = (@room == room) ? 'active' : '' %>
+          <div class="card no-outline mb-2 room-card <%= active_class %>">
             <div class="card-body">
-              <%= room.name %>
+              <span class='name'><%= room.name %></span><br>
+              <span class='member-count'>
+                <small><%= room.messagewriters.uniq.count %> chatters</small>
+              </span>
             </div>
           </div>
         <% end %>
       <% end %>
     </div>
-
     <div class="col-9">
       <% if @room.present? %>
         <div class="chat-room">
-          <nav class="navbar navbar-light bg-light mb-4">
-            <span class="navbar-brand" href="#"><%= @room.name %></span>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                Logged in as, <%= current_messagewriter.username %>
-              </li>
-            </ul>
+          <nav class="navbar navbar-light">
+            <span class="navbar-brand" href="#">
+              <b><%= @room.name %></b>
+            </span>
+            <small><%= @room.messagewriters.uniq.count %> chatters</small>
           </nav>
           <div id="messages">
             <% @room.messages.each do |message| %>
@@ -39,7 +49,6 @@
             <%= render 'messages/form', message: Message.new, room: @room %>
           </div>
         </div>
-        
       <% end %>
     </div>
   </div>

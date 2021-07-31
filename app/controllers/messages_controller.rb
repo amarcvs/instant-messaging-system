@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   # authorize! :action, Message, message => "You are not authorized"
   
-  before_action :set_message, only: %i[ show edit update destroy ]
+  before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   
   # GET /messages or /messages.json
@@ -41,7 +41,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to @message, notice: "Message was successfully updated." }
         format.json { render :show, status: :ok, location: @message }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end

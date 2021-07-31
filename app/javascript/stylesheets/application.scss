@@ -1,19 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
-.chat-room {
-    height: 100vh;
+body {
     overflow-y: hidden;
-    background-color: #f5e979;
-    font-family: 'Ubuntu', sans-serif;
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+  }
+  
+  .chat-room {
+        height: 100vh;
+        font-family: 'Ubuntu', sans-serif;
+        background-color: #f5e979;
+    
+    #messages {
+        height: 100%;
+        overflow-y: scroll;
+        padding-bottom: 200px;
+        padding-top: 20px;
+    }
+  
+    .navbar {
+        //border: 1px solid #644572;
+        background-color: white;
+        border-bottom: 2px solid #eeeeee;
+        //margin-left: 5px;
+        width: 100%;
+    }
+  
     .message {
         min-height: 59px;
         .content-container {
             display: inline-block;
             .content {
-                border-style:solid;
-                border-color:#ffc400;
-                border-width:2px;
-                
+                border-style: solid;
+                border-color: #ffc400;
+                border-width: 2px;
+
                 background-color: white;
                 padding: 8px 16px;
                 border-radius: .25rem;
@@ -26,8 +50,10 @@
         }
         &.me {
             .content-container {
-                float: right;
+            float: right;
                 .content {
+                    border-color: #343156;
+
                     background-color: #644572;
                     color: white;
                 }
@@ -36,9 +62,12 @@
     }
     .chat-box {
         position: absolute;
-        bottom: 0;
+        bottom: -10px;
         padding: 20px;
-        width: 70%;
+        width: 75%;
+        margin-left: -15px;
+        background-color: white;
+        border-top: 1px solid #eeeeee;
         input[type=text] {
             height: 45px;
             font-size: 18px;
@@ -49,8 +78,47 @@
         }
     }
 }
+  
+.card.no-outline {
+    border: none;
+}
+  
+.room-link {
+    &:hover {
+        text-decoration: none;
+    }
+    .room-card {
+        transition: background-color 0.5s ease;
+        //border-radius: 20px;
+        &:hover {
+            background-color: #d3d3d3;
+            border-right: 3px solid #644572;
+        }
+        &.active {
+            background-color: #027B7E;
+        .name {
+            color: white;
+        }
+        .member-count {
+            color: #e0e0e0;
+        }
+        }
+        .name {
+            font-weight: bold;
+            color: black;
+        }
+        .member-count {
+            color: #777777;
+            font-weight: light;
+        }
+    }
+}
+  /* overriding bootstrap's style */
+.rooms-sidebar {
+    border-right: 1px solid #eeeeee;
+}
 
-.btn-primary {
+.btn-primary:default {
     color: #fff;
     background-color: #644572;
     border-color: #644572;
@@ -71,10 +139,15 @@ input:focus {
 }
 
 .card-body {
-    border: 2px solid #ffc400 !important;
+    //border: 2px solid #ffc400 !important;
 }
 
 a {
     color: black;
     text-decoration: none;
+}
+
+/*******************/
+.small, small {
+    padding-right: 15px;
 }
