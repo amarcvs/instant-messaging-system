@@ -1,0 +1,39 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+<table>
+ <tr>
+<th> Email </th>
+<th> User </th>
+<th> Admin </th>
+
+<th> Toggle Ban </th>
+<th> Toggle Admin </th>
+ </tr>
+
+ <% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.is_messagewriter? %></td>
+    <td><%= user.is_admin? %></td>
+    <td> <% if user.is_banned? %> 
+        <%= link_to "Remove Ban", admin_unban_user_path(user.id), method: :get, data: { confirm: "Are you sure?" } %>
+        <% else %>
+        <%= link_to "Ban", admin_ban_user_path(user.id), method: :get, data: { confirm: "Are you sure?" } %>
+        <% end %>
+    </td>
+    <td>
+        <% if user.is_admin? %> 
+        <%= link_to "Remove Admin", admin_unadmin_user_path(user.id), method: :get, data: { confirm: "Are you sure?" } %>
+        <% else %>
+        <%= link_to "Make Admin", admin_admin_user_path(user.id), method: :get, data: { confirm: "Are you sure?" } %>
+        <% end %>
+
+        </td>
+
+  </tr>
+<% end %>
+
+</table>

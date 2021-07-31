@@ -1,6 +1,9 @@
 class MessagesController < ApplicationController
+  # authorize! :action, Message, message => "You are not authorized"
+  
   before_action :set_message, only: %i[ show edit update destroy ]
 
+  
   # GET /messages or /messages.json
   def index
     @messages = Message.all

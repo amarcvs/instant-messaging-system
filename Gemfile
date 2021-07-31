@@ -34,6 +34,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth', '~>1.9.1'
+gem 'canard', '~> 0.6.2.pre'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

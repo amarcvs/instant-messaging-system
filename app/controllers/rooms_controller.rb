@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  # authorize! :action, Room, message => "You are not authorized"
+  
   before_action :set_room, only: %i[ show edit update destroy ]
 
   # GET /rooms or /rooms.json

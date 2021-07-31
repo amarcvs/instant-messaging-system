@@ -27,5 +27,19 @@
 </table>
 
 <br>
+<% if can? :destroy, Message %>
+<td><%= link_to "Destroy", message_path(message.id), method: :delete, data: { confirm: "Are you sure?" } %></td>
+
+<% else %>
+<td>Destroy</td>
+<% end %>
+
+
+<% if not current_user.nil? %>
+<b>Roles : </b>
+  <% if current_user.is_messagewriter? %>
+    Messagewriter
+  <%end %>
+<% end %>
 
 <%= link_to 'New Message', new_message_path %>
