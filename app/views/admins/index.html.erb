@@ -1,39 +1,62 @@
 <style>
-table, th, td {
-  border: 1px solid black;
-}
+  /*table, th, td {
+    border: 1px solid black;
+  }*/
+
+  .togglebancolor a, .bancolor a:hover {
+    color: red;
+  }
+
+  .toggleadmincolor a, .bancolor a:hover {
+    color: green;
+  }
+  .divtab {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
 </style>
-<table>
- <tr>
-<th> Email </th>
-<th> User </th>
-<th> Admin </th>
+<div class="divtab">
+  <h3>Admin control panel</h3>
+  <table class="table table-striped table-bordered table-hover">
+    <caption>@ List of users</caption>
+    <thead>
+      <tr class="bg-info">
+        <th scope="col">#</th>
+        <th scope="col"> E-mail </th>
+        <th scope="col"> User </th>
+        <th scope="col"> Admin </th>
+        <th scope="col"> Toggle ban </th>
+        <th scope="col"> Toggle admin </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% count = 0 %>
+      <% @users.each do |user| %>
+        <% count = count + 1 %>
+        <tr>
+          <th scope="row"><%= count %></td>
+          <td class="table-success"><%= user.email %></td>
+          <td><%= user.is_messagewriter? %></td>
+          <td><%= user.is_admin? %></td>
 
-<th> Toggle Ban </th>
-<th> Toggle Admin </th>
- </tr>
+          <td class="togglebancolor"> 
+            <% if user.is_banned? %> 
+              <%= link_to "Remove Ban", admin_unban_user_path(user.id), method: :get, data: { confirm: "Are you sure?" } %>
+            <% else %>
+              <%= link_to "Ban", admin_ban_user_path(user.id), method: :get, data: { confirm: "Are you sure?" } %>
+            <% end %>
+          </td>
 
- <% @users.each do |user| %>
-  <tr>
-    <td><%= user.email %></td>
-    <td><%= user.is_messagewriter? %></td>
-    <td><%= user.is_admin? %></td>
-    <td> <% if user.is_banned? %> 
-        <%= link_to "Remove Ban", admin_unban_user_path(user.id), method: :get, data: { confirm: "Are you sure?" } %>
-        <% else %>
-        <%= link_to "Ban", admin_ban_user_path(user.id), method: :get, data: { confirm: "Are you sure?" } %>
-        <% end %>
-    </td>
-    <td>
-        <% if user.is_admin? %> 
-        <%= link_to "Remove Admin", admin_unadmin_user_path(user.id), method: :get, data: { confirm: "Are you sure?" } %>
-        <% else %>
-        <%= link_to "Make Admin", admin_admin_user_path(user.id), method: :get, data: { confirm: "Are you sure?" } %>
-        <% end %>
-
-        </td>
-
-  </tr>
-<% end %>
-
-</table>
+          <td class="toggleadmincolor"> 
+            <% if user.is_admin? %> 
+              <%= link_to "Remove admin", admin_unadmin_user_path(user.id), method: :get, data: { confirm: "Are you sure?" } %>
+            <% else %>
+              <%= link_to "Make admin", admin_admin_user_path(user.id), method: :get, data: { confirm: "Are you sure?" } %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
