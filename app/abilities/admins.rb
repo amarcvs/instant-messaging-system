@@ -1,6 +1,5 @@
 Canard::Abilities.for(:admin) do
-  can [:create, :read, :destroy], Message
-  
-  can [:create, :read, :destroy], Room
+  can [:create, :update, :read, :destroy], Message
+  can [:create, :update, :read, :destroy], Room
   
 end

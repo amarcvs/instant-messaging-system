@@ -12,10 +12,20 @@
 
   <%= form.hidden_field :room_id, value: room.id %>
   
-  <div class="input-group">
-    <%= form.text_field :content, placeholder: "Type your message here...", class: 'form-control' %>
-    <div class="input-group-append">
-      <%= form.submit "Add Message", class: "btn btn-primary" %>
+  <% if current_user.is_banned? %>
+    <div class="input-group">
+      <%= form.text_field :content, placeholder: "You have been banned and cannot send messages!", class: 'form-control', readonly: "readonly"  %>
+      <div class="input-group-append">
+        <%= form.submit "Add Message", class: "btn btn-primary", disabled: "disabled" %>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <div class="input-group">
+      <%= form.text_field :content, placeholder: "Type your message here...", class: 'form-control' %>
+      <div class="input-group-append">
+        <%= form.submit "Add Message", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+
 <% end %>

@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  #before_action :authenticate_user!
   # authorize! :action, Message, message => "You are not authorized"
   
   before_action :set_message, only: [:show, :edit, :update, :destroy]
@@ -24,6 +25,8 @@ class MessagesController < ApplicationController
 
   # POST /messages or /messages.json
   def create
+    #authorize! :action, Message, message => "You are not authorized"
+
     @message = Message.new(message_params)
 
     # implying that we actually have a currrent user which we don't
@@ -36,6 +39,8 @@ class MessagesController < ApplicationController
 
   # PATCH/PUT /messages/1 or /messages/1.json
   def update
+    authorize! :action, Message, message => "You are not authorized"
+
     respond_to do |format|
       if @message.update(message_params)
         format.html { redirect_to @message, notice: "Message was successfully updated." }
@@ -49,6 +54,8 @@ class MessagesController < ApplicationController
 
   # DELETE /messages/1 or /messages/1.json
   def destroy
+    #authorize! :action, Message, message => "You are not authorized"
+    
     @message.destroy
     respond_to do |format|
       format.html { redirect_to messages_url, notice: "Message was successfully destroyed." }

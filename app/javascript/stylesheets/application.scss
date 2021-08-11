@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 body {
+    background-color: #FFA500;
     overflow-y: hidden;
     ::-webkit-scrollbar {
         display: none;
@@ -8,8 +9,104 @@ body {
 
     -ms-overflow-style: none;
   }
-  
-  .chat-room {
+    p a {
+        text-decoration: none;
+    }
+
+    p a.githubacc {
+        color: black;
+    }
+
+    p i.giticon {
+        filter: invert(1);
+    }
+
+    ul.homenav {
+        position:fixed;
+        z-index:100;
+        top:0;
+        background-color: none;
+        width:100%;
+        height:30px;
+        padding-right: 10px;
+        padding-top: 10px;
+    }
+    
+    ul.homenav li a {
+        color: white;
+        //text-decoration: none;
+    }
+
+    ul.homenav li a:hover {
+        color: gray;
+    }
+
+    ul.homenav li.btn {
+        background-color: black;
+        border-radius: 20px;
+    }
+
+    .section { //*******************
+	    text-align: center;
+        // padding-top: 8%;
+        h1 {
+            font-size: 5em;
+            font-family: 'Ubuntu', sans-serif;
+            color: white; //#19c072;
+            margin:0;
+        }
+        
+        .intro p {
+            color: #fff;
+            font-size: 20px;
+        }
+
+    }
+
+    /* overwriting fullPage's styles for control arrows for slides
+    * --------------------------------------- */ //*******************
+    .controlArrow.prev { /*?*/
+        left: 50px;
+    }
+
+    .controlArrow.next { /*?*/
+        right: 50px;
+    }
+
+    .fp-controlArrow.fp-prev {
+        left: 6%;
+        display:none;
+    }
+
+    .fp-controlArrow.fp-next {
+        right: 6%;
+        display:none;
+    }
+
+    /* overwriting fullPage's styles for the navigation dots (to place it where we want)
+    * --------------------------------------- */
+    .fp-slidesNav.bottom {
+        bottom: 25px;
+    }
+
+    /* fullPage's bottom menu
+    * --------------------------------------- */
+    #infoMenu li a {
+        color: #fff;
+    }
+
+    .fp-tableCell {
+        vertical-align: top;
+        // display: initial !important;
+    }
+    
+    #mapid {
+        width: 800px;
+        height: 200px;
+    }
+
+    
+    .chat-room {
         height: 100vh;
         font-family: 'Ubuntu', sans-serif;
         background-color: #f5e979;
@@ -28,7 +125,7 @@ body {
         //margin-left: 5px;
         width: 100%;
     }
-  
+    
     .message {
         min-height: 59px;
         .content-container {
@@ -151,3 +248,25 @@ a {
 .small, small {
     padding-right: 15px;
 }
+
+
+
+/* some interesting color palettes:
+.color1 {color: #f1d070;}
+.color2 {color: #f4de8f;}
+.color3 {color: #122e62;}
+.color4 {color: #146683;}
+.color5 {color: #17a0aa;}
+
+.color1 {color: #343156;}
+.color2 {color: #644572;}
+.color3 {color: #a65a96;}
+.color4 {color: #f17cb7;}
+.color5 {color: #f6a4cf;}
+
+.color1 {color: #002c0e;}
+.color2 {color: #005b78;}
+.color3 {color: #00be9a;}
+.color4 {color: #53f473;}
+.color5 {color: #ffff70;}
+*/

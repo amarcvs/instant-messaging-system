@@ -12,22 +12,37 @@
             (aka: <b><%= current_messagewriter.username %></b>)<br>
             [<%= link_to 'Logout', destroy_user_session_path, :method => :delete%>]
           <% end %>
+          <% if not current_user.nil? %> 
+            <hr>
+            <b>Roles : </b> 
+            <% if current_user.is_messagewriter? %>
+              simple user
+            <% end %>
+            <% if current_user.is_admin? %>
+              [<%= link_to "Admin", admin_view_path %>]
+            <% end %>
+            <% if current_user.is_banned? %>
+              |Banned|
+            <% end %>
+          <% end  %>
         </div>
       </div>
       <hr>
       <%= render 'form', room: Room.new %>
       <hr>
-      <% @rooms.each do |room| %>
-        <%= link_to room, class: 'room-link' do %>
-          <% active_class = (@room == room) ? 'active' : '' %>
-          <div class="card no-outline mb-2 room-card <%= active_class %>">
-            <div class="card-body">
-              <span class='name'><%= room.name %></span><br>
-              <span class='member-count'>
-                <small><%= room.messagewriters.uniq.count %> chatters</small>
-              </span>
+      <% if not current_user.is_banned? %>
+        <% @rooms.each do |room| %>
+          <%= link_to room, class: 'room-link' do %>
+            <% active_class = (@room == room) ? 'active' : '' %>
+            <div class="card no-outline mb-2 room-card <%= active_class %>">
+              <div class="card-body">
+                <span class='name'><%= room.name %></span><br>
+                <span class='member-count'>
+                  <small><%= room.messagewriters.uniq.count %> chatters</small>
+                </span>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
