@@ -1,3 +1,14 @@
+<script>
+  author = document.getElementById("current_messagewriter").innerHTML.trim();
+  messages = document.getElementsByClassName("message");
+  for(let i = 0; i < messages.length; i++) {
+    if (messages[i].childNodes[1].childNodes[3].innerHTML.trim() == author) {
+      // console.log(author + "-" + messages[i].childNodes[1].childNodes[3].innerHTML.trim());
+      messages[i].classList.add("me");
+    }
+  }
+</script>
+
 <%= form_for(message, remote: true) do |form| %>
   <% if message.errors.any? %>
     <div id="error_explanation">

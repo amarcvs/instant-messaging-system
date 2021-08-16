@@ -8,9 +8,9 @@
       <div class="card no-outline">
         <div class="card-body">
           <% if user_signed_in? %>
-            <small>Logged in as</small><br> <%= current_user.email%>
-            (aka: <b><%= current_messagewriter.username %></b>)<br>
-            [<%= link_to 'Logout', destroy_user_session_path, :method => :delete%>]
+            <small><strong>Logged in as</small></strong><br> <span id="current_messagewriter"><%= current_messagewriter.username %></span><!--current_user.email-->
+            <!--(aka: <strong id="current_messagewriter"><%= current_messagewriter.username %></strong>)--><br>
+            <p id="roomlogout">[ <%= link_to 'Logout', destroy_user_session_path, :method => :delete%> ]</p>
           <% end %>
           <% if not current_user.nil? %> 
             <hr>
@@ -19,10 +19,11 @@
               simple user
             <% end %>
             <% if current_user.is_admin? %>
-              [<%= link_to "Admin", admin_view_path %>]
+              , admin
+              <br/><p id="admpanel">[ <%= link_to "Admin Control Panel", admin_view_path %> ]</p>
             <% end %>
             <% if current_user.is_banned? %>
-              |Banned|
+              suspended user
             <% end %>
           <% end  %>
         </div>

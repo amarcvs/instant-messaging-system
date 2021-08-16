@@ -1,9 +1,8 @@
 class Messagewriter < ApplicationRecord
-    validates_uniqueness_of :username
+    # validates_uniqueness_of :username
 
-    def self.generate
-        number = rand.to_s[2..4]
-        username = "User-#{number}"
-        create(username: username)
-      end
+    def self.generate(user)
+      username = user.email
+      create(username: username)
+    end
 end
