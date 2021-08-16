@@ -1,4 +1,10 @@
 <script>
+  function scrollToBottom() {
+    var messageDiv = document.getElementById("messages");
+    messageDiv.scrollTop = messageDiv.scrollHeight;
+    return true;
+  }
+
   author = document.getElementById("current_messagewriter").innerHTML.trim();
   messages = document.getElementsByClassName("message");
   for(let i = 0; i < messages.length; i++) {
@@ -7,6 +13,7 @@
       messages[i].classList.add("me");
     }
   }
+  scrollToBottom();
 </script>
 
 <%= form_for(message, remote: true) do |form| %>
@@ -34,7 +41,7 @@
     <div class="input-group">
       <%= form.text_field :content, placeholder: "Type your message here...", class: 'form-control' %>
       <div class="input-group-append">
-        <%= form.submit "Add Message", class: "btn btn-primary" %>
+        <%= form.submit "Add Message", class: "btn btn-primary", onclick: "scrollToBottom();" %>
       </div>
     </div>
   <% end %>

@@ -1,50 +1,58 @@
-<ul class="nav justify-content-end homenav">
-	<li class="nav-item">
-	  	<a class="nav-link" href="/"><i class="fas fa-home"></i></i> Home |</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="/signup"><i class="fas fa-user-plus"></i> Sign up |</a>
-	</li>
-</ul>
-<div class="container" style="width: 300px; padding-top: 100px">
-  <h2>Log in</h2>
+<body class="enterforms">
+  <ul class="nav justify-content-end homenav">
+    <li class="nav-item">
+      <a class="nav-link" href="/"><i class="fas fa-home"></i></a>
+    </li>
+  </ul>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-    <div class="field mb-3">
-      <%= f.label :email, class: "form-label" %><br />
-      <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
-    </div>
-
-    <div class="field mb-3">
-      <%= f.label :password, class: "form-label col-auto" %><br />
-      <%= f.password_field :password, class: "form-control", autocomplete: "current-password" %>
-    </div>
-
-    <% if devise_mapping.rememberable? %>
-      <div class="field mb-3">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me, class: "form-label" %>
+  <div class="login-form">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      
+      <div class="avatar">
+        <%= image_tag('conversation.png') %>
       </div>
+      
+      <h2 class="text-center">Member Login</h2>   
+      
+      <div class="form-group">
+        <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "E-mail", required: "required" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.password_field :password, class: "form-control", autocomplete: "current-password", placeholder: "Password", required: "required" %>
+      </div>
+
+
+      <div class="form-group">
+        <%= f.submit "Sign in", class: "btn btn-primary btn-lg btn-block" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="bottom-action clearfix">
+          <label class="float-left form-check-label"><%= f.check_box :remember_me %> Remember me</label>
+          <%= link_to "Forgot password?", new_password_path(resource_name), class: "float-right" %>
+        </div>
+      <% end %>
+      
+      <div class="container p-3">
+        <p class="small">Oppure accedi con:</p>
+        <section class="mb-4">
+          <a class="btn btn-outline-light btn-floating m-1" href="/" style="pointer-events: none; cursor: default;" role="button"><i class="fab fa-facebook-f logosocial"></i><%= link_to " Sign in with Facebook", omniauth_authorize_path(resource_name, :facebook) %></a>
+          <br/>
+          <a class="btn btn-outline-light btn-floating m-1" href="/" style="pointer-events: none; cursor: default;" role="button"><i class="fab fa-google logosocial"></i><%= link_to " Sign in with Google", user_google_oauth2_omniauth_authorize_path %></a>
+        </section>
+      </div>
+    
     <% end %>
+    
+    <p class="text-center small">Don't have an account? <%= link_to "Sign up here!", new_registration_path(resource_name) %></p>
 
-    <div class="actions mb-3">
-      <%= f.submit "Log in", class: "btn btn-success" %>
+    <!--
+    <div class="card">
+      <%= render "devise/shared/links" %>
     </div>
-  <% end %>
+    -->
 
-  <!--<div class="card">
-    <%= render "devise/shared/links" %>
-  </div>-->
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br/>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br/>
-  <div class="card" style="width: 18rem;">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item bg-primary"><i class="fab fa-facebook"></i><%= link_to " Sign in with Facebook", omniauth_authorize_path(resource_name, :facebook) %></li>
-      <li class="list-group-item bg-danger"><i class="fab fa-google"></i><%= link_to " Sign in with Google", user_google_oauth2_omniauth_authorize_path %></li>
-    </ul>
-  </div>
-  
 </div>
-
+</body>
 

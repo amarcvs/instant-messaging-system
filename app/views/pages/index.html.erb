@@ -25,32 +25,31 @@
 </head>
 <body>
 	<ul class="nav justify-content-end homenav">
-		<!--<li class="nav-item">
-		  <a class="nav-link active" aria-current="page" href="#">Active</a>
-		</li>-->
-		<li class="nav-item"> <!-- btn -->
-		  	<a class="nav-link" href="/login"><i class="fas fa-users"></i> Enter |</a>
+		<li class="nav-item">
+		  	<a class="nav-link" href="/login"><i class="fas fa-user"></i></a>
 		</li>
-		<li class="nav-item"> <!-- btn -->
-			<a class="nav-link" href="/signup"><i class="fas fa-user-plus"></i> Sign up |</a>
-		</li>
-		
-		<!--<li class="nav-item">
-		  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-		</li>-->
 	</ul>
+
+	<!-- The Modal -->
+	<!--<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<p>Some text in the Modal..</p>
+		</div>
+	</div>-->
+
 	<div id="fullpage">
 		<div class="section" id="section0">
 			<div class="intro">
 				<div class="slide active" id="home" data-anchor="home">
-					<h1>Home</h1>
-					<p>[logo]</p>
-					<p>An easy and simple way to message with your favourite people!</p>
-					<p>Register to send as many messages as you want <i class="far fa-comments"></i></p>
+					<h1>HOME</h1>
+					<p>An easy way to message with your favourite people.</p>
+					<br/><br/>
+					<%= image_tag('conversation.png') %>
 				</div>
 				<div class="slide" id="about" data-anchor="about">
 					<h1>About</h1>
-					<p>I'm a student. I'm studying computer engineering at "La Sapienza" of Rome and this is the project for the "Software Applications and IT Security lab" course. </p>
+					<p>I'm a computer engineering student at "La Sapienza" of Rome and this is the project for the "Software Applications and IT Security lab" course. </p>
 				</div>
 			</div>
 		</div>
@@ -58,23 +57,9 @@
 		<div class="section" id="section1">
 			<div class="intro">
 				<h1>Contacts</h1>
+
 				<!-- Leaflet map -->
 				<div id="mapid" class="container"></div>
-				<script>
-					var mymap = L.map('mapid').setView([41.903171, 12.514415/*51.505, -0.09*/], 13);
-				
-					L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-						maxZoom: 18,
-						attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-							'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-						id: 'mapbox/streets-v11',
-						tileSize: 512,
-						zoomOffset: -1
-					}).addTo(mymap);
-				
-					L.marker([41.903171, 12.514415/*51.5, -0.09*/]).addTo(mymap)
-						.bindPopup("<b>'La Sapienza' University of Rome</b><br />We are here!").openPopup();
-				</script>
 				
 				<!-- Footer -->
 				<footer class="text-center container p-4" style="background-color: rgba(0, 0, 0, 0.2); width: 800px; height: 200px;">
@@ -83,18 +68,15 @@
 					<!-- Social media -->
 					<div class="container">
 						<section class="mb-4">
-							<!-- Facebook -->
+							<!--
 							<a class="btn btn-outline-dark btn-floating m-1" href="/" style="pointer-events: none; cursor: default;" role="button"><i class="fab fa-facebook-f"></i></a>
-					
-							<!-- Google -->
+
 							<a class="btn btn-outline-dark btn-floating m-1" href="/" style="pointer-events: none; cursor: default;" role="button"><i class="fab fa-google"></i></a>
-					
-							<!-- Github -->
+							-->
 							<a class="btn btn-outline-light btn-floating m-1" href="https://github.com/amarcvs" target="_blank" role="button"><i class="fab fa-github-alt"></i></a>
 						</section>
 					</div>
 				
-					<!-- Copyright -->
 					<div class="text-center text-light p-3">&copy; 2021 Copyright: instant-messaging-system.com</div>
 				</footer>
 			</div>
@@ -114,6 +96,53 @@
 			navigationTooltips: ['Home', 'Contacts']
 		});
 	</script>
+
+	<!-- Leaflet script -->
+	<script>
+		var mymap = L.map('mapid').setView([41.903171, 12.514415], 13);
+	
+		L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+				'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+			id: 'mapbox/streets-v11',
+			tileSize: 512,
+			zoomOffset: -1
+		}).addTo(mymap);
+	
+		L.marker([41.903171, 12.514415]).addTo(mymap)
+			.bindPopup("<b>'La Sapienza' University of Rome</b><br />We are here!").openPopup();
+	</script>
+	
+	<!-- script for popups -->
+	<!--<script>
+		// Get the modal
+		var modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+			modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>-->
+
 
 </body>
 </html>

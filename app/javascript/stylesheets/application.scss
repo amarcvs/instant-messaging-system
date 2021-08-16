@@ -1,14 +1,113 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 body {
-    background-color: #FFA500;
+    
     overflow-y: hidden;
     ::-webkit-scrollbar {
         display: none;
     }
 
     -ms-overflow-style: none;
-  }
+    }
+
+    /* enter forms */
+    body.enterforms {
+        background-color: #FFA500;
+    }
+
+    .form-control {
+        min-height: 41px;
+        background: #fff;
+        box-shadow: none !important;
+        border-color: #e3e3e3;
+    }
+    .form-control:focus {
+        border-color: #644572;
+    }
+    .form-control, .btn {        
+        border-radius: 2px;
+    }
+    .login-form {
+        width: 350px;
+        margin: 0 auto;
+        padding: 100px 0 30px;
+        font-family: 'Ubuntu', sans-serif;
+    }
+    .login-form form {
+        color: #7a7a7a;
+        border-radius: 2px;
+        margin-bottom: 15px;
+        font-size: 13px;
+        background: #ececec;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;	
+        position: relative;	
+    }
+    .login-form h2 {
+        font-size: 22px;
+        margin: 35px 0 25px;
+    }
+    .login-form .avatar {
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: -50px;
+        width: 95px;
+        height: 95px;
+        border-radius: 50%;
+        z-index: 9;
+        background: #644572;
+        padding: 15px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    }
+    .login-form .avatar img {
+        width: 100%;
+    }	
+    .login-form input[type="checkbox"] {
+        position: relative;
+        top: 1px;
+    }
+    .login-form .btn, .login-form .btn:active {        
+        font-size: 16px;
+        font-weight: bold;
+        background: #644572 !important;
+        border: none;
+        margin-bottom: 20px;
+    }
+    .login-form .btn:hover, .login-form .btn:focus {
+        background: #713775 !important;
+    }    
+    .login-form a {
+        color: #fff;
+        text-decoration: underline;
+    }
+    .login-form a:hover {
+        text-decoration: none;
+    }
+    .login-form form a {
+        color: #7a7a7a;
+        text-decoration: none;
+    }
+    .login-form form a i.logosocial {
+        color: white;
+    }
+    .login-form form a:hover {
+        text-decoration: underline;
+    }
+    .login-form .bottom-action {
+        font-size: 14px;
+    }
+
+    /****************/
+    .fa-home {
+        font-size: 1.4rem;
+    }
+
+    .fa-user {
+        font-size: 1.4rem;
+    }
+
     p a {
         text-decoration: none;
     }
@@ -21,6 +120,7 @@ body {
         filter: invert(1);
     }
 
+    /* nav */
     ul.homenav {
         position:fixed;
         z-index:100;
@@ -28,8 +128,8 @@ body {
         background-color: none;
         width:100%;
         height:30px;
-        padding-right: 10px;
-        padding-top: 10px;
+        padding-right: 25px;
+        padding-top: 20px;
     }
     
     ul.homenav li a {
@@ -38,20 +138,61 @@ body {
     }
 
     ul.homenav li a:hover {
-        color: gray;
+        color: #f74f4f;
     }
 
     ul.homenav li.btn {
         background-color: black;
         border-radius: 20px;
     }
+    /*****************/
+    
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    /******************/
 
     .section { //*******************
 	    text-align: center;
+        font-family: 'Ubuntu', sans-serif;
         // padding-top: 8%;
         h1 {
             font-size: 5em;
-            font-family: 'Ubuntu', sans-serif;
             color: white; //#19c072;
             margin:0;
         }
@@ -109,7 +250,7 @@ body {
     .chat-room {
         height: 100vh;
         font-family: 'Ubuntu', sans-serif;
-        background-color: #f5e979;
+        background-color: #854f89; // #f5e979;
     
     #messages {
         height: 100%;
@@ -133,15 +274,15 @@ body {
             .content {
                 border-style: solid;
                 border-color: #ffc400;
-                border-width: 2px;
-
-                background-color: white;
+                border-width: 1px;
+                color: #3d4159;
+                background-color: #ffe152;
                 padding: 8px 16px;
                 border-radius: .25rem;
             }
             .author {
                 font-size: 0.8rem;
-                color: #777777;
+                color: white;
                 margin-left: 10px;
             }
         }
@@ -149,19 +290,21 @@ body {
             .content-container {
             float: right;
                 .content {
-                    border-color: #343156;
+                    border-color: #dd3033;
 
-                    background-color: #644572;
-                    color: white;
+                    background-color: #f74f4f;
+                    color: #3d4159;
+                    
                 }
             }
         }
     }
+    
     .chat-box {
         position: absolute;
         bottom: -10px;
         padding: 20px;
-        width: 75%;
+        width: 100%; //75%;
         margin-left: -15px;
         background-color: white;
         border-top: 1px solid #eeeeee;
@@ -217,8 +360,8 @@ body {
 
 .btn-primary:default {
     color: #fff;
-    background-color: #644572;
-    border-color: #644572;
+    background-color: #713775;
+    border-color: #713775;
 }
 
 .btn-primary:hover {
@@ -226,17 +369,28 @@ body {
 }
 
 input {
-    border-color: #644572 !important;
+    border-color: #713775 !important;
+}
+
+input:hover {
+    border-color: #343156 !important;
 }
 
 input:focus { 
     outline: none !important;
-    border-color: #343156 !important;
+    border-color: #713775 !important;
     box-shadow: none !important;
 }
 
 .card-body {
     //border: 2px solid #ffc400 !important;
+    p#roomlogout a {
+        color: #f74f4f;
+    }
+
+    p#admpanel a {
+        color: #FFA500;
+    }
 }
 
 a {
