@@ -14,7 +14,9 @@ body {
     body.enterforms {
         background-color: #FFA500;
     }
-
+    body.controlPanel {
+        background-color: #c0c0c0
+    }
     .form-control {
         min-height: 41px;
         background: #fff;
@@ -147,6 +149,11 @@ body {
     }
     /*****************/
     
+    .style_image {
+        height: 40%;
+        width: auto;
+    }
+
     /* The Modal (background) */
     .modal {
         display: none; /* Hidden by default */
@@ -376,6 +383,12 @@ input:hover {
     border-color: #343156 !important;
 }
 
+input:disabled, input.btn.btn-primary.btn-block:hover, input.btn.btn-primary:hover {
+    border-color: #343156 !important;
+    background-color: #343156 !important;
+}
+
+
 input:focus { 
     outline: none !important;
     border-color: #713775 !important;
@@ -383,14 +396,20 @@ input:focus {
 }
 
 .card-body {
-    //border: 2px solid #ffc400 !important;
+    
     p#roomlogout a {
         color: #f74f4f;
     }
 
-    p#admpanel a {
+    span.admpanel a {
         color: #FFA500;
     }
+}
+.card-body-color {
+    /*border-left: 2px solid black !important;
+    border-right: 2px solid black !important;
+    border-bottom: 2px solid black !important;*/
+    background-color: #dadada;
 }
 
 a {

@@ -15,10 +15,15 @@
     margin: 0 auto;
     padding-top: 20px;
   }
+  a.admpanel {
+        color: #FFA500;
+  }
 </style>
+<body class="controlPanel">
 <div class="divtab">
   <h3>Admin control panel</h3>
-  <table class="table table-striped table-bordered table-hover">
+  <br/>
+  <table class="table table-striped table-bordered table-hover" style="background-color: white;">
     <caption>@ List of users</caption>
     <thead>
       <tr class="bg-info">
@@ -59,5 +64,6 @@
       <% end %>
     </tbody>
   </table>
-  [ <a class="link-info" href="/rooms">Back to chats</a> ]
+  <p>[ <a class="admpanel" href="/rooms">Back to chats</a> ]</p>
 </div>
+<body>

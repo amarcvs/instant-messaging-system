@@ -7,7 +7,7 @@
 	<meta name="keywords"  content="" />
 	<meta name="Resource-type" content="Document" />
 	<title>instantMessagingSystem</title>
-	
+
 	<!-- fullPage.js library -->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" />
 
@@ -15,8 +15,6 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 
-	<link rel="stylesheet" href="style.css" />
-	
 	<!--[if IE]>
 		<script type="text/javascript">
 			 var console = { log: function() {} };
@@ -50,6 +48,7 @@
 				<div class="slide" id="about" data-anchor="about">
 					<h1>About</h1>
 					<p>I'm a computer engineering student at "La Sapienza" of Rome and this is the project for the "Software Applications and IT Security lab" course. </p>
+					<%= image_tag('people.png', class: "style_image") %>
 				</div>
 			</div>
 		</div>
@@ -85,15 +84,16 @@
 
 	<!-- fullPage.js library -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
-
+	
 	<script type="text/javascript">
 		var myFullpage = new fullpage('#fullpage', {
-			anchors: ['home', 'contacts'],
+			anchors: ['homepage', 'contacts'],
 			sectionsColor: ['#FFA500', '#922B3E'],
 			navigation: true,
 			slidesNavigation: true,
 			navigationPosition: 'right',
-			navigationTooltips: ['Home', 'Contacts']
+			navigationTooltips: ['Home', 'Contacts'],
+			licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE'
 		});
 	</script>
 

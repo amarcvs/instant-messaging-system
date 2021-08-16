@@ -43,7 +43,7 @@ class RoomsController < ApplicationController
 
   # PATCH/PUT /rooms/1 or /rooms/1.json
   def update
-    authorize! :action, Room, message => "You are not authorized"
+    #authorize! :action, Room, room => "You are not authorized"
     
     respond_to do |format|
       if @room.update(room_params)
@@ -58,7 +58,7 @@ class RoomsController < ApplicationController
 
   # DELETE /rooms/1 or /rooms/1.json
   def destroy
-    authorize! :action, Room, message => "You are not authorized"
+    #authorize! :action, Room, room => "You are not authorized"
 
     @room.destroy
     respond_to do |format|

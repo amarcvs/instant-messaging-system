@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-3 rooms-sidebar">
       <div class="card no-outline">
-        <div class="card-body">
+        <div class="card-body card-body-color">
           <% if user_signed_in? %>
             <small><strong>Logged in as</small></strong><br> <span id="current_messagewriter"><%= current_messagewriter.username %></span><!--current_user.email-->
             <!--(aka: <strong id="current_messagewriter"><%= current_messagewriter.username %></strong>)--><br>
@@ -20,7 +20,7 @@
             <% end %>
             <% if current_user.is_admin? %>
               , admin
-              <br/><p id="admpanel">[ <%= link_to "Admin Control Panel", admin_view_path %> ]</p>
+              <br/><span class="admpanel"><strong>Control panel:</strong> [ <%= link_to "Admin Control Panel", admin_view_path %> ]</span>
             <% end %>
             <% if current_user.is_banned? %>
               suspended user
@@ -53,6 +53,9 @@
           <nav class="navbar navbar-light">
             <span class="navbar-brand" href="#">
               <b><%= @room.name %></b>
+              <% if current_user.is_admin? %>
+                <span>[<%= link_to 'x', @room, method: :delete, data: { confirm: 'Are you sure you want to delete this room?' } %>]</span>
+              <% end %>
             </span>
             <small><%= @room.messagewriters.uniq.count %> chatters</small>
           </nav>
