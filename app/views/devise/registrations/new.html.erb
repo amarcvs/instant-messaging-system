@@ -1,29 +1,52 @@
-<h2>Sign up</h2>
+<body class="enterforms">
+  <ul class="nav justify-content-end homenav">
+		<li class="nav-item">
+		  <a class="nav-link" href="/" onclick="loadHomepage();"><i class="fas fa-home"></i></a>
+		</li>
+  </ul>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="login-form">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= form_for(resource, as: resource_name, url: new_registration_path(resource_name)) do |f| %>
+		
+      <div class="avatar">
+        <%= image_tag('conversation.png') %>
+      </div>
+      
+      <h2 class="text-center">Member Sign up</h2>   
+          
+      <div class="form-group">
+        <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "E-mail", required: "required" %>
+      </div>
+        
+      <div class="form-group">
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, class: "form-control", autocomplete: "new-password", placeholder: "Password", required: "required" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password-confermation", placeholder: "Password confermation", required: "required" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.submit "Sign up", class: "btn btn-primary btn-lg btn-block" %>
+      </div>
+    
+      <div class="container p-3">
+        <p class="small">Oppure accedi con:</p>
+        <section class="mb-4">
+          <a class="btn btn-outline-dark btn-floating m-1" href="/" style="pointer-events: none; cursor: default;" role="button"><i class="fab fa-facebook-f logosocial"></i></a><a><%= link_to " Sign in with Facebook", omniauth_authorize_path(resource_name, :facebook) %></a>
+          <br/>
+          <a class="btn btn-outline-dark btn-floating m-1" href="/" style="pointer-events: none; cursor: default;" role="button"><i class="fab fa-google logosocial"></i><%= link_to " Sign in with Google", user_google_oauth2_omniauth_authorize_path %></a>
+        </section>
+      </div>
+
+    <% end %>
+    
+    <p class="text-center small">Already have an account? <%= link_to "Sign in here!", new_user_session_path %></p>
+    
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</body>

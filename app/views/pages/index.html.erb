@@ -56,7 +56,7 @@
 		<div class="section" id="section1">
 			<div class="intro">
 				<h1>Contacts</h1>
-
+				<br/>
 				<!-- Leaflet map -->
 				<div id="mapid" class="container"></div>
 				
@@ -99,7 +99,7 @@
 
 	<!-- Leaflet script -->
 	<script>
-		var mymap = L.map('mapid').setView([41.903171, 12.514415], 13);
+		var mymap = L.map('mapid').setView([41.903635, 12.51478], 14);
 	
 		L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 			maxZoom: 18,
@@ -110,8 +110,8 @@
 			zoomOffset: -1
 		}).addTo(mymap);
 	
-		L.marker([41.903171, 12.514415]).addTo(mymap)
-			.bindPopup("<b>'La Sapienza' University of Rome</b><br />We are here!").openPopup();
+		L.marker([41.903635, 12.51478]).addTo(mymap)
+			.bindPopup("<b>Location:</b><br/>Piazzale Aldo Moro, 5<br/>Roma").openPopup();
 	</script>
 	
 	<!-- script for popups -->

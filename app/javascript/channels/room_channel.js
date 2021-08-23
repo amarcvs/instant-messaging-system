@@ -38,6 +38,28 @@ document.addEventListener('turbolinks:load', () => {
   
       const messageContainer = document.getElementById('messages');
       messageContainer.innerHTML = messageContainer.innerHTML + html;
+
+      
+      scrollToBottom();
     }
+
+    
+    
   });
+  
+  function scrollToBottom() {
+    let author = document.getElementById("current_messagewriter").innerHTML.trim();
+    let messages = document.getElementsByClassName("message");
+    for(let i = 0; i < messages.length; i++) {
+      if (messages[i].childNodes[1].childNodes[3].innerHTML.trim() == author) {
+        // console.log(author + "-" + messages[i].childNodes[1].childNodes[3].innerHTML.trim());
+        messages[i].classList.add("me");
+      }
+    }
+
+    let messageDiv = document.getElementById("messages");
+    messageDiv.scrollTop = messageDiv.scrollHeight;
+    return true;
+  }
+  
 })

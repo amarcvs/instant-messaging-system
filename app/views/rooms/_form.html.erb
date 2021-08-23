@@ -17,12 +17,6 @@
       <%= form.text_field :name, class: 'form-control', placeholder: "Room name" %>
     </div>
     <%= form.submit "Add", class: "btn btn-primary btn-block" %>
-  <% else %>
-    <div class="form-group mb-3">
-      <strong><%= form.label "Add a new room" %></strong>
-      <%= form.text_field :name, class: 'form-control', placeholder: "xxxxxxxxxx", readonly: "readonly" %>
-    </div>
-    <%= form.submit "Add", class: "btn btn-primary btn-block", disabled: "disabled" %>
   <% end %>
 
 <% end %>
