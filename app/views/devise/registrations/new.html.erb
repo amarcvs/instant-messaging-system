@@ -37,7 +37,7 @@
       <div class="container p-3">
         <p class="small">Oppure accedi con:</p>
         <section class="mb-4">
-          <a class="btn btn-outline-dark btn-floating m-1" href="/" style="pointer-events: none; cursor: default;" role="button"><i class="fab fa-facebook-f logosocial"></i></a><a><%= link_to " Sign in with Facebook", omniauth_authorize_path(resource_name, :facebook) %></a>
+          <a class="btn btn-outline-dark btn-floating m-1" href="/" style="pointer-events: none; cursor: default;" role="button"><i class="fab fa-facebook-f logosocial"></i></a><a><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
           <br/>
           <a class="btn btn-outline-dark btn-floating m-1" href="/" style="pointer-events: none; cursor: default;" role="button"><i class="fab fa-google logosocial"></i><%= link_to " Sign in with Google", user_google_oauth2_omniauth_authorize_path %></a>
         </section>
